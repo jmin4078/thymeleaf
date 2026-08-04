@@ -1,4 +1,4 @@
-package org.example.thymeleaf.config;
+/*package org.example.thymeleaf.config;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -40,4 +40,4 @@ public class AppConfig {
     public MyBean prodMyBean() {
         return new MyBean("prod");
     }
-}
+}*/
