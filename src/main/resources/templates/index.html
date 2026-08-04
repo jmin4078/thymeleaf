@@ -52,7 +52,16 @@
     <p th:text="${data}"></p>
     <p>[[${data}]]</p>
     <!--        <p th:utext="${data}"></p>-->
-    <p>[(${data})]</p>
+    <!--        <p>[(${data})]</p>-->
+</section>
+<section>
+    <!--        <form action="/login">-->
+    <form th:action="@{/login}">
+    </form>
+    <form th:action="@{/login/{id}(id=${msg})}">
+    </form>
+    <form th:action="@{/login(pass=1234)}">
+    </form>
 </section>
 </body>
 </html>
