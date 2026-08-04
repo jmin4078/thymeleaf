@@ -36,13 +36,18 @@ public class MainController {
     public String index(Model model) {
         model.addAttribute("msg", appProperties.message());
         model.addAttribute("msg2", msg);
-        model.addAttribute("pizzas", pizzaRepository.findAll());
+//        model.addAttribute("pizzas", pizzaRepository.findAll());
+        model.addAttribute("pizzas",
+                pizzaRepository.findAll().stream().map(PizzaDTO::fromEntity).toList());
         return "index";
     }
 
     public record PizzaDTO(String name, int price) {
         Pizza toEntity() {
             return Pizza.builder().name(name).price(price).build();
+        }
+        static PizzaDTO fromEntity(Pizza pizza) {
+            return new PizzaDTO(pizza.getName(), pizza.getPrice());
         }
     }
 
