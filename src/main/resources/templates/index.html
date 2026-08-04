@@ -8,7 +8,8 @@
     <title>Hello Thymeleaf</title>
 </head>
 <body>
-<h1>Hello Thymeleaf</h1>
+<!--    <h1>Hello Thymeleaf</h1>-->
+<h1 th:text="#{page.headline}"></h1>
 <p th:text="${msg}">메시지</p>
 <!--    <p th:text="${msg2}">메시지2</p>-->
 <p>[[${msg2}]]</p>
