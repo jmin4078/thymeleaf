@@ -34,6 +34,11 @@ public class MainController {
 
     @GetMapping
     public String index(Model model) {
+//        model.addAttribute("data", "text-data");
+        String data = """
+                <script>alert('XSS!')</script>
+                """;
+        model.addAttribute("data", data);
         model.addAttribute("msg", appProperties.message());
         model.addAttribute("msg2", msg);
 //        model.addAttribute("pizzas", pizzaRepository.findAll());

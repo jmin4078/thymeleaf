@@ -24,11 +24,35 @@
     </form>
 </section>
 <section>
-    <p th:each="pizza : ${pizzas}">
-        [[${pizza}]] / [[${pizza.name}]] / [[${pizza.price}]]
+    <!--    HTML 주석    -->
+    <!--/*    타임리프 주석    */-->
+    <!--        <p th:each="pizza : ${pizzas}">-->
+    <!--        2번째 위치는 상태 관련 변수를 받아올 수 있음 -->
+    <div th:each="pizza, status : ${pizzas}">
+        <!--            [[${pizza}]] / [[${pizza.name}]] / [[${pizza.price}]]-->
         <code th:text="${pizza.name}"></code>
         <code th:text="${pizza.price}"></code>
-    </p>
+        <li th:text="${status.count}"></li>
+        <li th:text="${status.index}"></li>
+        <li th:text="${status.first}"></li>
+        <li th:text="${status.last}"></li>
+        <mark th:if="${status.first}">첫번째입니다</mark>
+        <mark th:unless="${status.first}">첫번째가 아닙니다</mark>
+        <mark th:if="${status.last}">마지막입니다</mark>
+        <mark th:unless="${status.last}">마지막이 아닙니다</mark>
+        <section th:switch="${status.count}">
+            <p th:case="1">첫번째</p>
+            <p th:case="2">두번째</p>
+            <p th:case="*">잘모르겠음</p>
+        </section>
+        <mark th:if="${pizza.price >= 10000}">비싸다</mark>
+    </div>
+</section>
+<section>
+    <p th:text="${data}"></p>
+    <p>[[${data}]]</p>
+    <!--        <p th:utext="${data}"></p>-->
+    <p>[(${data})]</p>
 </section>
 </body>
 </html>
