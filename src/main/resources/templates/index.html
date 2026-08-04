@@ -12,5 +12,23 @@
 <p th:text="${msg}">메시지</p>
 <!--    <p th:text="${msg2}">메시지2</p>-->
 <p>[[${msg2}]]</p>
+<section>
+    <form th:method="post">
+        <label>
+            이름 : <input th:name="name">
+        </label>
+        <label>
+            가격 : <input th:name="price">
+        </label>
+        <button>생성</button>
+    </form>
+</section>
+<section>
+    <p th:each="pizza : ${pizzas}">
+        [[${pizza}]] / [[${pizza.name}]] / [[${pizza.price}]]
+        <code th:text="${pizza.name}"></code>
+        <code th:text="${pizza.price}"></code>
+    </p>
+</section>
 </body>
 </html>

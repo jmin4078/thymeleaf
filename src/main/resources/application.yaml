@@ -3,7 +3,7 @@ spring:
     name: thymeleaf
   profiles:
     #    active: prod
-    active: dev,app
+    active: dev,app,db
     #  thymeleaf:
     # 개발 환경에서는 false (바로 반영되게)
 #    cache: false
